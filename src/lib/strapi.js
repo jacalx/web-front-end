@@ -27,6 +27,7 @@ export async function strapiFetch(path, options = {}) {
   const data = await res.json().catch(() => null);
 
   if (!res.ok) {
+    console.error(`strapiFetch ${options.method || "GET"} ${path} failed:`, JSON.stringify(data, null, 2));
     const message = data?.error?.message || `Strapi request failed (${res.status})`;
     throw new Error(message);
   }

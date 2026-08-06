@@ -1,7 +1,21 @@
 import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { strapiFetch, flattenProduct } from "../../../lib/strapi";
-import { withLiveSellerInfo } from "../../../lib/liveSellerInfo";
+
+async function getSellerName(userId, fallbackUser) {
+  try {
+    const query = new URLSearchParams();
+    query.set("filters[clerkId][$eq]", userId);
+    query.set("pagination[pageSize]", "1");
+    const data = await strapiFetch(`/profiles?${query.toString()}`);
+    const profile = data.data?.[0];
+    const attrs = profile?.attributes || profile;
+    if (attrs?.fullName) return attrs.fullName;
+  } catch {
+    // fall through to the Clerk-only fallback below
+  }
+  return fallbackUser?.fullName || "Student";
+}
 
 // GET /api/products?category=Books&search=laptop&page=1
 // Public — anyone can browse the marketplace, signed in or not.
@@ -24,9 +38,14 @@ export async function GET(request) {
     if (searchParams.get("search")) {
       query.set("filters[title][$containsi]", searchParams.get("search"));
     }
+    if (searchParams.get("ids")) {
+      searchParams.get("ids").split(",").filter(Boolean).forEach((id, i) => {
+        query.set(`filters[documentId][$in][${i}]`, id);
+      });
+    }
 
     const data = await strapiFetch(`/products?${query.toString()}`);
-    const products = await withLiveSellerInfo((data.data || []).map(flattenProduct));
+    const products = (data.data || []).map(flattenProduct);
 
     return NextResponse.json({ products });
   } catch (err) {
@@ -53,27 +72,38 @@ export async function POST(request) {
       return NextResponse.json({ error: "Title, category, and price are required" }, { status: 400 });
     }
 
-    const created = await strapiFetch("/products", {
-      method: "POST",
-      body: JSON.stringify({
-        data: {
-          title,
-          description,
-          category,
-          condition,
-          price,
-          images: images || [],
-          university,
-          location,
-          status: "available",
-          views: 0,
-          sellerId: userId,
-          sellerName: user?.unsafeMetadata?.fullName || user?.fullName || "Student",
-          sellerEmail: user?.primaryEmailAddress?.emailAddress || "",
-          sellerAvatar: user?.imageUrl || "",
-        },
-      }),
-    });
+    const payload = {
+      title,
+      description,
+      category,
+      condition,
+      price,
+      images: images || [],
+      university,
+      location,
+      productStatus: "available",
+      views: 0,
+      sellerId: userId,
+      sellerName: await getSellerName(userId, user),
+      sellerEmail: user?.primaryEmailAddress?.emailAddress || "",
+      sellerAvatar: user?.imageUrl || "",
+    };
+
+    console.log("POST /api/products — sending to Strapi:", payload);
+
+    let created;
+    try {
+      created = await strapiFetch("/products", {
+        method: "POST",
+        body: JSON.stringify({ data: payload }),
+      });
+    } catch (strapiErr) {
+      console.error("Strapi rejected product creation:", {
+        message: strapiErr.message,
+        payloadSent: payload,
+      });
+      throw strapiErr;
+    }
 
     return NextResponse.json({ product: flattenProduct(created.data) }, { status: 201 });
   } catch (err) {

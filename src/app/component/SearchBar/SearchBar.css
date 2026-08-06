@@ -1,0 +1,9 @@
+/* ===== SearchBar ===== */
+.searchbar { display: flex; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; transition: all var(--t-fast); }
+.searchbar:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.searchbar-icon { margin-left: 12px; color: var(--text-tertiary); font-size: 0.75rem; }
+.searchbar-input { flex: 1; border: none; outline: none; padding: 9px 12px; font-size: var(--fs-sm); background: transparent; color: var(--text); font-family: var(--font-body); }
+.searchbar-input::placeholder { color: var(--text-tertiary); }
+.searchbar-btn { padding: 8px 16px; background: var(--primary); color: var(--card); font-size: var(--fs-xs); font-weight: 600; border: none; border-radius: var(--r-sm); margin: 4px; transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast); font-family: var(--font-body); }
+.searchbar-btn:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.searchbar-btn:active { transform: translateY(0); }

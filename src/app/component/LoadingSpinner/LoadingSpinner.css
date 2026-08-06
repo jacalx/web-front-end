@@ -1,0 +1,7 @@
+/* ===== LoadingSpinner ===== */
+.loading-spinner-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 60px 20px; }
+.loading-spinner { border: 3px solid var(--border); border-top-color: var(--accent); border-radius: var(--r-full); animation: spin 0.7s linear infinite; }
+.loading-small .loading-spinner { width: 24px; height: 24px; }
+.loading-medium .loading-spinner { width: 36px; height: 36px; }
+.loading-large .loading-spinner { width: 48px; height: 48px; }
+.loading-message { font-size: var(--fs-sm); color: var(--text-secondary); font-weight: 500; margin: 0; font-family: var(--font-body); }

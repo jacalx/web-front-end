@@ -1,0 +1,21 @@
+/* Edit Profile Page Styles */
+.editprofile { padding: 24px 0 60px; }
+.editprofile-container { max-width: 600px; margin: 0 auto; padding: 0 24px; }
+.editprofile-back { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--text-secondary); margin-bottom: 16px; }
+.editprofile-back:hover { color: var(--accent); }
+.editprofile-header { margin-bottom: 24px; }
+.editprofile-error { padding: 10px 14px; background: var(--danger-bg); color: var(--danger); border-radius: var(--r-sm); font-size: var(--fs-sm); margin-bottom: 16px; }
+.editprofile-title { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 700; }
+.editprofile-subtitle { font-size: var(--fs-sm); color: var(--text-secondary); margin-top: 4px; }
+.editprofile-form { display: flex; flex-direction: column; gap: 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 28px; }
+.editprofile-field { display: flex; flex-direction: column; gap: 8px; }
+.editprofile-label { font-size: var(--fs-sm); font-weight: 600; }
+.editprofile-file-input { display: none; }
+.editprofile-upload-area { width: 80px; height: 80px; border: 2px dashed var(--border-dark); border-radius: var(--r-full); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color var(--t-fast); }
+.editprofile-upload-area:hover { border-color: var(--accent); }
+.editprofile-preview { width: 100%; height: 100%; border-radius: var(--r-full); object-fit: cover; }
+.editprofile-upload-placeholder { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.editprofile-upload-icon { font-size: var(--fs-xl); color: var(--text-tertiary); }
+.editprofile-upload-placeholder span { font-size: var(--fs-2xs); color: var(--text-tertiary); }
+.editprofile-save-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; background: var(--primary); color: #fff; border-radius: var(--r-sm); font-size: var(--fs-md); font-weight: 600; margin-top: 8px; }
+.editprofile-save-btn:hover { background: var(--primary-hover); }

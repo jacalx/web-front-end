@@ -1,0 +1,8 @@
+/* ===== Breadcrumb ===== */
+.breadcrumb { margin-bottom: 16px; }
+.breadcrumb-list { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.breadcrumb-item { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-family: var(--font-body); }
+.breadcrumb-separator { color: var(--text-tertiary); font-size: 0.5625rem; }
+.breadcrumb-link { color: var(--text-secondary); font-weight: 500; transition: color var(--t-fast); }
+.breadcrumb-link:hover { color: var(--accent); }
+.breadcrumb-current { color: var(--text); font-weight: 600; }

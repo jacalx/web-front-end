@@ -1,0 +1,47 @@
+/* ===== CategoryCard — Circular ===== */
+.categorycard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--t-normal);
+}
+
+.categorycard:hover { transform: translateY(-3px); }
+
+.categorycard-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-full);
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--accent);
+  transition: all var(--t-normal);
+}
+
+.categorycard:hover .categorycard-circle {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.categorycard-name {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+.categorycard-count {
+  font-size: var(--fs-3xs);
+  color: var(--text-tertiary);
+  font-family: var(--font-body);
+}

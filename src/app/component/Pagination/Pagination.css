@@ -1,0 +1,6 @@
+/* ===== Pagination ===== */
+.pagination { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 32px; }
+.pagination-btn { display: flex; align-items: center; justify-content: center; min-width: 36px; height: 36px; padding: 0 10px; font-size: var(--fs-sm); font-weight: 600; color: var(--text-secondary); background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); transition: all var(--t-fast); font-family: var(--font-body); }
+.pagination-btn:hover:not(:disabled):not(.active) { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+.pagination-btn.active { background: var(--primary); color: var(--card); border-color: var(--primary); }
+.pagination-btn:disabled { opacity: 0.4; cursor: not-allowed; }

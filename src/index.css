@@ -1,0 +1,299 @@
+/* ================================================================
+   STUDENT MARKETPLACE — DESIGN SYSTEM v5 "Gazette"
+   Editorial. Warm. Human-crafted.
+   Serif display + sans body. Ink on paper. Terracotta accents.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv02', 'cv03', 'cv11', 'ss01';
+}
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; }
+
+/* ===== Design Tokens ===== */
+:root {
+  /* Brand — Ink */
+  --primary: #1A1A1A;
+  --primary-hover: #2D2D2D;
+  --primary-active: #404040;
+  --primary-light: #F5F5F5;
+  --primary-light-2: #EAEAEA;
+  --primary-tint: rgba(26, 26, 26, 0.04);
+  --primary-glow: rgba(26, 26, 26, 0.08);
+  --primary-bg: #FEF3EC;
+  --primary-border: #F3D9C4;
+
+  /* Accent — Terracotta */
+  --accent: #C2410C;
+  --accent-hover: #9A3412;
+  --accent-light: #FEF3EC;
+  --accent-border: #F3D9C4;
+  --accent-glow: rgba(194, 65, 12, 0.12);
+
+  /* Neutrals — Warm Paper */
+  --bg: #FAF8F5;
+  --bg-subtle: #F5F2ED;
+  --bg-muted: #EFECE6;
+  --card: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #5C5C5C;
+  --text-tertiary: #9A9A9A;
+  --border: #E8E4DE;
+  --border-dark: #D4CFC7;
+  --border-light: #F1F0ED;
+
+  /* Status — Muted, Warm */
+  --success: #15803D;
+  --success-bg: #F0FDF4;
+  --success-light: #DCFCE7;
+  --danger: #DC2626;
+  --danger-bg: #FEF2F2;
+  --danger-light: #FEE2E2;
+  --danger-hover: #B91C1C;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --warning-light: #FEF3C7;
+  --discount: #C2410C;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fs-3xs: 0.625rem;
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+
+  /* Radius — intentionally varied, editorial */
+  --r-xs: 3px;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 10px;
+  --r-xl: 14px;
+  --r-2xl: 20px;
+  --r-full: 9999px;
+
+  /* Shadows — soft, warm-toned */
+  --shadow-xs: 0 1px 2px rgba(26, 26, 26, 0.04);
+  --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.06), 0 1px 2px rgba(26, 26, 26, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(26, 26, 26, 0.08), 0 2px 4px -2px rgba(26, 26, 26, 0.04);
+  --shadow-lg: 0 12px 24px -6px rgba(26, 26, 26, 0.1), 0 4px 8px -4px rgba(26, 26, 26, 0.05);
+  --shadow-xl: 0 20px 40px -12px rgba(26, 26, 26, 0.12), 0 8px 16px -8px rgba(26, 26, 26, 0.06);
+  --shadow-2xl: 0 32px 64px -16px rgba(26, 26, 26, 0.16);
+  --shadow-primary: 0 4px 14px -2px rgba(26, 26, 26, 0.2);
+  --shadow-primary-lg: 0 8px 24px -4px rgba(26, 26, 26, 0.25);
+  --shadow-accent: 0 4px 14px -2px rgba(194, 65, 12, 0.25);
+  --shadow-accent-lg: 0 8px 24px -4px rgba(194, 65, 12, 0.3);
+
+  /* Layout */
+  --max-w: 1280px;
+  --navbar-h: 60px;
+
+  /* Transitions */
+  --t-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-bounce: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUpLarge { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes dropIn { from { opacity: 0; transform: translateY(-6px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes heartPop { 0% { transform: scale(1); } 50% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+.page-fade { animation: slideUpLarge 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+/* ===== Selection ===== */
+::selection { background: var(--accent-light); color: var(--accent); }
+
+/* ===== Focus visible (accessibility) ===== */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: none;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Utilities ===== */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+/* ===== Floating-label form fields ===== */
+.floating-field {
+  position: relative;
+}
+
+.floating-field input,
+.floating-field textarea,
+.floating-field select {
+  width: 100%;
+  padding: 18px 14px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-md);
+  color: var(--text);
+  outline: none;
+  background: var(--card);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.floating-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  padding-top: 22px;
+}
+
+.floating-field input:focus,
+.floating-field textarea:focus,
+.floating-field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.floating-field label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--fs-md);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  transition: all var(--t-fast);
+  background: transparent;
+  font-weight: 400;
+  font-family: var(--font-body);
+}
+
+.floating-field textarea ~ label {
+  top: 16px;
+  transform: translateY(0);
+}
+
+.floating-field input:focus ~ label,
+.floating-field input:not(:placeholder-shown) ~ label,
+.floating-field textarea:focus ~ label,
+.floating-field textarea:not(:placeholder-shown) ~ label,
+.floating-field select:focus ~ label,
+.floating-field select:valid ~ label {
+  top: 6px;
+  transform: translateY(0);
+  font-size: var(--fs-3xs);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.floating-field input::placeholder,
+.floating-field textarea::placeholder { color: transparent; }
+
+/* Select floating label */
+.floating-field select {
+  appearance: none;
+  padding: 18px 36px 7px 14px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239A9A9A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.floating-field select ~ label {
+  top: 6px;
+  transform: translateY(0);
+  font-size: var(--fs-3xs);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ===== Horizontal scroll ===== */
+.hscroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+  scroll-snap-type: x proximity;
+}
+.hscroll::-webkit-scrollbar { display: none; }
+.hscroll-item { flex: 0 0 auto; scroll-snap-align: start; }
+
+/* ===== Skeleton ===== */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-muted) 25%, var(--bg-subtle) 50%, var(--bg-muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}

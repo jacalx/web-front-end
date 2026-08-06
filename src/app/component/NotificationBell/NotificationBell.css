@@ -1,0 +1,20 @@
+/* ===== NotificationBell ===== */
+.notifbell-wrapper { position: relative; }
+.notifbell-btn { position: relative; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--r-sm); color: var(--text-secondary); font-size: 0.875rem; transition: all var(--t-fast); }
+.notifbell-btn:hover { background: var(--bg-subtle); color: var(--text); }
+.notifbell-badge { position: absolute; top: 4px; right: 4px; min-width: 15px; height: 15px; padding: 0 4px; background: var(--accent); color: white; font-size: 0.5625rem; font-weight: 700; border-radius: var(--r-full); display: flex; align-items: center; justify-content: center; border: 2px solid var(--card); font-family: var(--font-body); }
+.notifbell-dropdown { position: absolute; top: calc(100% + 8px); right: 0; width: 340px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); box-shadow: var(--shadow-xl); overflow: hidden; z-index: 200; animation: dropIn 0.3s var(--t-bounce); }
+.notifbell-header { padding: 12px 16px; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; }
+.notifbell-header h4 { font-family: var(--font-display); font-size: var(--fs-sm); font-weight: 600; color: var(--text); margin: 0; }
+.notifbell-unread { font-size: var(--fs-3xs); color: var(--accent); font-weight: 600; font-family: var(--font-body); }
+.notifbell-list { max-height: 360px; overflow-y: auto; }
+.notifbell-item { display: flex; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border-light); transition: background var(--t-fast); cursor: pointer; }
+.notifbell-item:hover { background: var(--bg-subtle); }
+.notifbell-item:last-child { border-bottom: none; }
+.notifbell-item.unread { background: var(--accent-light); }
+.notifbell-icon { width: 32px; height: 32px; border-radius: var(--r-full); background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--text-secondary); flex-shrink: 0; }
+.notifbell-content { flex: 1; min-width: 0; }
+.notifbell-title { font-size: var(--fs-xs); font-weight: 600; color: var(--text); margin: 0; font-family: var(--font-body); }
+.notifbell-text { font-size: var(--fs-3xs); color: var(--text-tertiary); margin: 2px 0 0; font-family: var(--font-body); }
+.notifbell-viewall { display: block; padding: 10px 16px; text-align: center; border-top: 1px solid var(--border-light); font-size: var(--fs-xs); color: var(--accent); font-weight: 600; transition: background var(--t-fast); font-family: var(--font-body); }
+.notifbell-viewall:hover { background: var(--bg-subtle); }

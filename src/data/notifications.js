@@ -1,0 +1,68 @@
+// ===== NOTIFICATIONS DATA =====
+// Dummy notifications for the notification page and bell icon
+
+export const notifications = [
+  {
+    id: "n1",
+    type: "message",
+    title: "New Message",
+    text: "Chan Dara sent you a message about 'MacBook Air 2020'",
+    time: "2024-07-10T14:30:00",
+    read: false,
+    icon: "message",
+  },
+  {
+    id: "n2",
+    type: "favorite",
+    title: "New Favorite",
+    text: "Kim Sreypich added your 'English Textbook Set' to their wishlist",
+    time: "2024-07-10T12:15:00",
+    read: false,
+    icon: "heart",
+  },
+  {
+    id: "n3",
+    type: "sold",
+    title: "Product Sold",
+    text: "Your 'Scientific Calculator' has been sold to Oun Sopheak",
+    time: "2024-07-09T16:00:00",
+    read: true,
+    icon: "check",
+  },
+  {
+    id: "n4",
+    type: "report",
+    title: "Report Update",
+    text: "Admin reviewed your report on 'Fake iPhone 13'. The product has been removed.",
+    time: "2024-07-09T10:30:00",
+    read: true,
+    icon: "flag",
+  },
+  {
+    id: "n5",
+    type: "message",
+    title: "New Message",
+    text: "Nget Visal sent you a message about 'Dell Monitor 24-inch'",
+    time: "2024-07-08T16:45:00",
+    read: true,
+    icon: "message",
+  },
+  {
+    id: "n6",
+    type: "favorite",
+    title: "New Favorite",
+    text: "Thorn Ratanak added your 'Drafting Table' to their wishlist",
+    time: "2024-07-07T11:30:00",
+    read: true,
+    icon: "heart",
+  },
+  {
+    id: "n7",
+    type: "system",
+    title: "Welcome to Student Marketplace",
+    text: "Complete your profile to start selling and buying safely!",
+    time: "2024-07-05T09:00:00",
+    read: true,
+    icon: "info",
+  },
+];

@@ -1,0 +1,11 @@
+/* ===== ChatPreview ===== */
+.chatpreview { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--r-md); cursor: pointer; transition: all var(--t-fast); }
+.chatpreview:hover { background: var(--bg-subtle); }
+.chatpreview.active { background: var(--accent-light); }
+.chatpreview-avatar { width: 40px; height: 40px; border-radius: var(--r-full); object-fit: cover; flex-shrink: 0; border: 1px solid var(--border); }
+.chatpreview-info { flex: 1; min-width: 0; }
+.chatpreview-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+.chatpreview-name { font-size: var(--fs-sm); font-weight: 600; color: var(--text); font-family: var(--font-body); }
+.chatpreview-time { font-size: var(--fs-3xs); color: var(--text-tertiary); font-weight: 500; font-family: var(--font-body); }
+.chatpreview-last { font-size: var(--fs-xs); color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; font-family: var(--font-body); }
+.chatpreview-badge { min-width: 18px; height: 18px; padding: 0 5px; background: var(--accent); color: white; font-size: 0.5625rem; font-weight: 700; border-radius: var(--r-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-body); }

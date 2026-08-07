@@ -1,11 +1,8 @@
 {
   "/page": "app/page.js",
-  "/about/page": "app/about/page.js",
-  "/my-products/page": "app/my-products/page.js",
-  "/sell/page": "app/sell/page.js",
-  "/api/admin/users/[id]/route": "app/api/admin/users/[id]/route.js",
-  "/admin/page": "app/admin/page.js",
-  "/api/products/[id]/route": "app/api/products/[id]/route.js",
   "/api/stats/route": "app/api/stats/route.js",
-  "/api/products/route": "app/api/products/route.js"
+  "/admin/page": "app/admin/page.js",
+  "/api/products/route": "app/api/products/route.js",
+  "/api/admin/users/route": "app/api/admin/users/route.js",
+  "/api/products/[id]/route": "app/api/products/[id]/route.js"
 }

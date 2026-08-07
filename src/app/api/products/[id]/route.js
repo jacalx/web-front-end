@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { auth, currentUser } from "@clerk/nextjs/server";
-import { strapiFetch, flattenProduct } from "../../../../lib/strapi";
+import { auth } from "@clerk/nextjs/server";
+import { strapiFetch, flattenProduct, isAdminUser } from "../../../../lib/strapi";
 import { withLiveSellerInfo } from "../../../../lib/liveSellerInfo";
 
 async function getRawProduct(id) {
@@ -8,8 +8,9 @@ async function getRawProduct(id) {
   return data.data;
 }
 
-// Only the seller who created the listing, or a Clerk admin
-// (publicMetadata.role === "admin"), may edit or delete it.
+// Only the seller who created the listing, or an admin (per Strapi's
+// profile.role — the single source of truth for admin status), may
+// edit or delete it.
 async function assertOwnerOrAdmin(product) {
   const { userId } = await auth();
   if (!userId) return { ok: false, status: 401, message: "Sign in required" };
@@ -17,8 +18,7 @@ async function assertOwnerOrAdmin(product) {
   const attrs = product.attributes || product;
   if (attrs.sellerId === userId) return { ok: true };
 
-  const user = await currentUser();
-  if (user?.publicMetadata?.role === "admin") return { ok: true };
+  if (await isAdminUser(userId)) return { ok: true };
 
   return { ok: false, status: 403, message: "You can only manage your own products" };
 }

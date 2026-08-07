@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs/server";
 import { strapiFetch } from "../../../lib/strapi";
 
+// clerkClient() reads request headers internally, so even without calling
+// auth() directly, this route can't be statically rendered.
+export const dynamic = "force-dynamic";
+
 // GET /api/stats — public. Only ever returns aggregate numbers, never
 // individual user data, so it's safe to call from the logged-out homepage.
 export async function GET() {

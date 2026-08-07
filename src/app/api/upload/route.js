@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 
+// This route reads the signed-in user via auth() (cookies/headers), so it
+// can never be statically rendered — force Next.js to treat it as dynamic.
+export const dynamic = "force-dynamic";
+
 const STRAPI_URL = process.env.STRAPI_URL;
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 

@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { strapiFetch, isAdminUser } from "../../../../lib/strapi";
 
+// This route reads the signed-in user via auth() (cookies/headers), so it
+// can never be statically rendered — force Next.js to treat it as dynamic.
+export const dynamic = "force-dynamic";
+
 // GET /api/admin/users — admin only. Real data: Clerk is the source of
 // truth for identity/ban status, Strapi is the source of truth for role.
 export async function GET() {

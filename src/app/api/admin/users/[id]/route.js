@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { strapiFetch, isAdminUser } from "../../../../../lib/strapi";
 
+// This route reads the signed-in user via auth() (cookies/headers), so it
+// can never be statically rendered — force Next.js to treat it as dynamic.
+export const dynamic = "force-dynamic";
+
 async function requireAdmin() {
   const { userId } = await auth();
   if (!userId) return { ok: false, status: 401, message: "Sign in required" };

@@ -3,6 +3,10 @@ import { auth } from "@clerk/nextjs/server";
 import { strapiFetch, flattenProduct, isAdminUser } from "../../../../lib/strapi";
 import { withLiveSellerInfo } from "../../../../lib/liveSellerInfo";
 
+// This route reads the signed-in user via auth() (cookies/headers), so it
+// can never be statically rendered — force Next.js to treat it as dynamic.
+export const dynamic = "force-dynamic";
+
 async function getRawProduct(id) {
   const data = await strapiFetch(`/products/${id}?populate=*`);
   return data.data;

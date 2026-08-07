@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { strapiFetch } from "../../../lib/strapi";
 
+// This route reads the signed-in user via auth() (cookies/headers), so it
+// can never be statically rendered — force Next.js to treat it as dynamic.
+export const dynamic = "force-dynamic";
+
 // Strapi is the source of truth for profile data (phone/university/bio/role).
 // This route is the ONLY place that talks to the `profile` content-type,
 // and it always derives the Clerk user id from the server-side session —

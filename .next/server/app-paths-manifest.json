@@ -1,8 +1,8 @@
 {
   "/page": "app/page.js",
+  "/api/stats/route": "app/api/stats/route.js",
   "/api/profile/route": "app/api/profile/route.js",
   "/api/products/route": "app/api/products/route.js",
-  "/api/stats/route": "app/api/stats/route.js",
-  "/api/admin/users/route": "app/api/admin/users/route.js",
-  "/admin/page": "app/admin/page.js"
+  "/admin/page": "app/admin/page.js",
+  "/api/admin/users/route": "app/api/admin/users/route.js"
 }
